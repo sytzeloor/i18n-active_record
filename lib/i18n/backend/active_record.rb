@@ -34,6 +34,7 @@ module I18n
           result = Translation.locale(locale).lookup(key)
 
           if result.empty?
+            Translation.create(:locale => locale.to_s, :key => key.to_s, :value => options.key?(:default) ? options[:default] : '')
             nil
           elsif result.first.key == key
             result.first.value
