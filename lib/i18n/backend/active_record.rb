@@ -34,12 +34,12 @@ module I18n
           result = Translation.locale(locale).lookup(key)
 
           if result.empty?
-            if options.key?(:default) && Translation.column_names.include?('default')
-              Translation.create(
-                :locale => locale.to_s, :key => key.to_s, :value => options[:default],
-                :default => true
-              )
-            end
+            # if options.key?(:default) && Translation.column_names.include?('default')
+            #   Translation.create(
+            #     :locale => locale.to_s, :key => key.to_s, :value => options[:default],
+            #     :default => true
+            #   )
+            # end
 
             nil
           elsif result.first.key == key
